@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Car Service Website</title>
+  <style>
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    html {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    .hero-section {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+    }  
+    
+    .btn-custom {
+      background-color: #f32b3f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .additional-image {
+      width: 100%;
+      height: auto;
+    }
+
+    .navbar.transparent {
+      background: transparent;
+      transition: background 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      background: rgb(0, 0, 0);
+      transition: background 0.3s ease;
+    }
+    
+    .navbar-light .navbar-brand,
+    .navbar-light .nav-link {
+      color: white;
+    }
+
+    .curved-edges {
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      background-color: #000;
+    }
+
+    .review-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 40px 0;
+    }
+
+    .img-fluid1,
+    .img-fluid2 {
+      flex: 0 0 auto;
+      width: 300px;
+      border-radius: 10px;
+    }
+
+    .img-fluid1 {
+      margin-left: 5%;
+    }
+
+    .img-fluid2 {
+      margin-right: 5%;
+    }
+
+    .review-text,
+    .review-text2 {
+      flex: 1 1 auto;
+      padding: 20px;
+    }
+
+    .review-text2 {
+      margin-left: 30%;
+    }
+
+    .review-item h3,
+    .review-item p {
+      color: white;
+    }
+
+    .review-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .circle-background {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 2px solid rgba(200, 26, 26, 0.9);
+      top: -100px;
+      right: -100px;
+      z-index: 0;
+    }
+
+    .circle-background.small {
+      width: 100px;
+      height: 100px;
+      top: 50px;
+      left: 60px;
+    }
+
+    .circle-background.small2 {
+      width: 200px;
+      height: 200px;
+      top: 400px;
+      left: 150px;
+    }
+
+    .img-fluid {
+      border-radius: 10px;
+    }
+
+    .offset-img1 {
+      margin-top: 0%;
+    }
+
+    .offset-img2 {
+      margin-top: 4%;
+    }
+
+    .offset-img3 {
+      margin-top: 8%;
+    }
+
+    .navbar-brand img {
+      width: 130px;
+      height: 40px;
+    }
+
+    .parent-container {
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+    .vertical-center {
+      margin-top: 10%;
+    }
+
+    #location {
+      background-color: #f8f9fa;
+      padding: 50px 0;
+    }
+
+    #location h3 {
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    #location p {
+      color: #666;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    #location iframe {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+
+    #about-text {
+      background-color: #f8f9fa;
+      border-left: 4px solid #000000;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light transparent fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="img/logo.png" alt="Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#reviews">Reviews</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#location">Location</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#team">Our Team</a>
+        </li>
+      </ul>
+      <a href="booking.html">
+        <button class="btn btn-danger ms-3">Book Now</button>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero-section">
+  <img src="img/main.png" alt="Car" class="hero-image">
+  <div class="hero-text">
+    <h2>Drive excellence. Redefine perfection.</h2>
+    <a href="booking.html">
+      <button class="btn btn-danger mt-4">Book Now</button>
+    </a>
+  </div>
+  <div class="transition-section"></div>
+</section>
+
+<section>
+  <img src="img/transition.png" alt="Additional Car" class="additional-image">
+</section>
+
+<section class="py-5" id="about">
+  <div class="container">
+    <h2 class="text-center mb-5">About Us</h2>
+    <div class="row">
+      <div class="col-md-6" id="about-text">
+        <p>Welcome to GleamAuto! We specialize in providing top-notch detailing, tinting, and car wrap services to keep your vehicle looking its absolute best.</p>
+        <p>Our team of experienced professionals is passionate about cars and committed to delivering exceptional service. Whether you need a comprehensive detail, professional window tints, or a custom car wrap, we've got you covered.</p>
+        <p>We use the latest technology and high-quality products to ensure your car receives the best care possible. Your satisfaction is our priority, and we strive to exceed your expectations with every visit.</p>
+      </div>
+      <div class="col-md-6">
+        <img src="img/about.jpg" alt="About Us" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light" id="services">
+  <div class="container">
+    <h2 class="text-center mb-5">Services</h2>
+    <div class="row text-center">
+      <div class="col-md-4 offset-md-0 offset-img1">
+        <img src="img/job1.jpg" alt="Detailing" class="img-fluid">
+        <h3 class="mt-3">Detailing</h3>
+        <p>Our detailing service goes beyond cleaning; it's a meticulous process that restores and protects your vehicle, leaving it looking pristine inside and out.</p>
+      </div>
+      <div class="col-md-4 offset-md-0 offset-img2">
+        <img src="img/job2.jpg" alt="Tints" class="img-fluid">
+        <h3 class="mt-3">Tints</h3>
+        <p>Enhance your driving experience with our professional window tinting service, providing privacy, UV protection, and a sleek, stylish look for your vehicle.</p>
+      </div>
+      <div class="col-md-4 offset-md-0 offset-img3">
+        <img src="img/job3.jpg" alt="Car Wraps" class="img-fluid">
+        <h3 class="mt-3">Car Wraps</h3>
+        <p>Transform your vehicle's appearance with our custom car wraps. Whether you're looking for a bold design or a protective finish, our wraps offer durability and style.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 text-white curved-edges position-relative" id="reviews">
+  <div class="circle-background"></div>
+  <div class="circle-background small"></div>
+  <div class="circle-background small2"></div>
+  <div class="container review-section position-relative">
+    <div class="review-wrapper">
+      <button class="btn btn-danger rounded-circle review-navigation" id="prevReview">❮</button>
+      <div class="review-container">
+        <div class="review-item d-flex">
+          <img src="img/review-img2.jpg" alt="Review 1" class="img-fluid1">
+          <div class="review-text ms-3">
+            <h3>Amazing Car Wrap!</h3>
+            <p>Great service and attention to detail! My car looks fantastic after the wrap, and the price was reasonable. Highly recommend!</p>
+            <div>
+              <span class="text-warning">★★★★★</span>
+            </div>
+          </div>
+        </div>
+        <div class="review-item d-flex flex-row-reverse">
+          <img src="img/review-img3.jpg" alt="Review 2" class="img-fluid2">
+          <div class="review-text2 me-3">
+            <h3>Very Happy!</h3>
+            <p>GleamAuto did an incredible job with my car wrap! The design and finish are perfect, and the attention to detail is impressive. My car looks fantastic and gets so many compliments. Highly recommend!</p>
+            <div>
+              <span class="text-warning">★★★★★</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-danger rounded-circle review-navigation" id="nextReview">❯</button>
+    </div>
+  </div>
+</section>
+
+<section class="py-5" id="location">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 vertical-center">
+        <h3>GleamAuto</h3>
+        <p>1234 Car Shine Street</p>
+        <p>Cityville, Provinceville</p>
+        <p>AB12CD</p>
+        <p>123-456-7890</p>
+        <p>info@gleamauto.com</p>
+      </div>
+      <div class="col-md-3 vertical-center">
+        <h3>Working Hours</h3>
+        <p>Weekdays: 9:00 - 17:30</p>
+        <p>Weekends and Holidays: 9:00 - 12:00</p>
+      </div>
+      <div class="col-md-6">
+        <div class="bg-light p-5 text-end" style="height: 500px;">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.2644539019125!2d-122.0842496846927!3d37.421999979825085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb5bb9b519921%3A0x13b70f2e626fa3f9!2sGoogleplex!5e0!3m2!1sen!2sus!4v1638836588968!5m2!1sen!2sus" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-black text-white" id="team">
+  <div class="container"></div>
+</section>
+
+<section class="py-5 bg-black text-white" id="team">
+  <div class="container">
+    <h2 class="text-center mb-5">Meet the Team!</h2>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <button class="btn btn-danger rounded-circle team-navigation" id="prevMember">❮</button>
+      <div class="text-center d-flex flex-column align-items-center">
+        <img src="img/james.jpg" alt="Portrait of member" class="rounded-circle" style="width: 150px; height: 150px; object-fit: cover;">
+        <h2 class="mt-3">James Bennett</h2>
+        <p class="text-center">James specializes in wrapping and tinting, providing top-quality
+           services to give your vehicle a sleek, personalized look. Trust James
+            to enhance your car\'s appearance with professionalism and style.</p>
+      </div>
+      <button class="btn btn-danger rounded-circle team-navigation" id="nextMember">❯</button>
+    </div>
+    <div class="row">
+      <h3 class="text-center mb-5">His Work:</h3>
+      <div class="col-md-6 mb-4 d-flex justify-content-center">
+        <img src="img/james work1.jpg" alt="Work of member" class="img-fluid rounded" style="height: 200px; object-fit: cover;">
+      </div>
+      <div class="col-md-6 mb-4 d-flex justify-content-center">
+        <img src="img/james work2.jpg" alt="Work of member" class="img-fluid rounded" style="height: 200px; object-fit: cover;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  const review1 = [
+  {
+    title: 'Amazing Car Wrap!',
+    text: 'Great service and attention to detail! My car looks fantastic after the wrap, and the price was reasonable. Highly recommend!',
+    image: 'img/review-img2.jpg',
+    rating: 5
+  },
+  {
+    title: 'Nicest Tint Job!',
+    text: 'Got my windows tinted at GleamAuto, and I\'m thrilled with the results. The tint looks great and really cuts down on glare and heat. Fast and professional service. Highly recommend!',
+    image: 'img/review-img3.jpg',
+    rating: 5
+  },
+  ];
+
+  const review2 = [
+    {
+      title: 'Very Happy!',
+      text: 'GleamAuto did an incredible job with my car wrap! The design and finish are perfect, and the attention to detail is impressive. My car looks fantastic and gets so many compliments. Highly recommend!',
+      image: 'img/review-img4.jpg',
+      rating: 5
+    },
+    {
+      title: 'Super Clean Car!',
+      text: 'Excellent detailing job! My car looks brand new inside and out. Fair pricing and friendly staff. Will be back!',
+      image: 'img/review-img1.jpg',
+      rating: 5
+    },
+  ];
+
+  let currentReviewIndex = 0;
+  function updateReview() {
+    const review_1 = review1[currentReviewIndex];
+    const review_2 = review2[currentReviewIndex];
+    document.querySelector('.img-fluid1').src = review_1.image;
+    document.querySelector('.review-text h3').textContent = review_1.title;
+    document.querySelector('.review-text p').textContent = review_1.text;
+    document.querySelector('.review-text span').innerHTML = '★'.repeat(review_1.rating);
+    document.querySelector('.img-fluid2').src = review_2.image;
+    document.querySelector('.review-text2 h3').textContent = review_2.title;
+    document.querySelector('.review-text2 p').textContent = review_2.text;
+    document.querySelector('.review-text2 span').innerHTML = '★'.repeat(review_2.rating);
+  }
+
+  window.onload = updateReview();
+
+  document.getElementById('nextReview').addEventListener('click', function() {
+    currentReviewIndex++;
+    if (currentReviewIndex >= reviews.length) {
+      currentReviewIndex = 0;
+    }
+    updateReview();
+  });
+
+  document.getElementById('prevReview').addEventListener('click', function() {
+    currentReviewIndex--;
+    if (currentReviewIndex < 0) {
+      currentReviewIndex = reviews.length - 1;
+    }
+    updateReview();
+  });
+
+  const teamMembers = [
+    {
+      name: 'James Bennett',
+      description: 'James specializes in wrapping and tinting, providing top-quality services to give your vehicle a sleek, personalized look. Trust James to enhance your car\'s appearance with professionalism and style.',
+      image: 'img/james.jpg',
+      workImages: ['img/james work1.jpg', 'img/james work2.jpg']
+    },
+    {
+      name: 'Ethan Carter',
+      description: 'Ethan Carter is an expert in automotive cleaning and window tinting. With a focus on detail and quality, he ensures vehicles look their best. Trust Ethan for comprehensive car care and professional results.',
+      image: 'img/ethan.jpg',
+      workImages: ['img/ethan work1.jpg', 'img/ethan work2.jpg']
+    },
+    {
+      name: 'Lucas Ramirez',
+      description: 'Lucas is our detailing and wrapping specialist, with a keen eye for detail and a passion for bringing out the best in every vehicle. Trust Lucas to give your car a makeover that will leave it looking brand new.',
+      image: 'img/lucas.jpg',
+      workImages: ['img/lucas work1.jpg', 'img/lucas work2.jpg']
+    }
+  ];
+
+  
+  let currentMemberIndex = 0;
+
+  function updateTeamMember() {
+    const member = teamMembers[currentMemberIndex];
+    document.querySelector('.text-center.d-flex.flex-column.align-items-center img').src = member.image;
+    document.querySelector('.text-center.d-flex.flex-column.align-items-center h2').textContent = member.name;
+    document.querySelector('.text-center.d-flex.flex-column.align-items-center p.text-center').textContent = member.description;
+    let images = document.querySelectorAll('.col-md-6.mb-4.d-flex.justify-content-center img');
+    images[0].src = member.workImages[0];
+    images[1].src = member.workImages[1];
+  }
+
+  window.onload = updateTeamMember();
+
+  document.getElementById('nextMember').addEventListener('click', function() {
+    currentMemberIndex++;
+    if (currentMemberIndex >= teamMembers.length) {
+      currentMemberIndex = 0;
+    }
+    updateTeamMember();
+  });
+
+  document.getElementById('prevMember').addEventListener('click', function() {
+    currentMemberIndex--;
+    if (currentMemberIndex < 0) {
+      currentMemberIndex = teamMembers.length - 1;
+    }
+    updateTeamMember();
+  });
+
+</script>
+
+</body>
+</html>
